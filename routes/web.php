@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
 // ============frontend================
 // home-page
 Route::get('/',[HomeController::class,'index'])->name('index');
+Route::post('/contact-us',[ContactController::class,'store'])->name('store.contact');
 
 
 // ============admin dashboard============

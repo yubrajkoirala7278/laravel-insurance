@@ -21,11 +21,20 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    {{-- toastify --}}
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
     <!-- theme meta -->
     <meta name="theme-name" content="novena" />
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend/images/favicon.png') }}" />
+    {{-- csrf token --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    {{-- jquery cdn --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!--
   Essential stylesheets
@@ -36,15 +45,19 @@
     <link rel="stylesheet" href="plugins/slick-carousel/slick/slick-theme.css">
     <link rel="stylesheet" href="{{ asset('frontend/plugins/slick-carousel/slick/slick-theme.css') }}">
 
+    {{-- bootstrap css --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
 
 </head>
 
 <body id="top">
-{{-- social media icon --}}
+    {{-- social media icon --}}
     <div class="social-media-whatsapp">
-        <a href="#" ><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
     </div>
     <header>
         <div class="header-top-bar">
@@ -72,7 +85,8 @@
         <nav class="navbar navbar-expand-lg navigation" id="navbar">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    <img src="{{ asset('frontend/images/logo.png') }}" alt="" class="img-fluid">
+                    <img src="{{ asset('frontend/images/logo.jpeg') }}" alt="" class="img-fluid"
+                        style="height: 50px">
                 </a>
 
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain"
@@ -167,9 +181,60 @@
                 </div>
             </div>
         </div>
-        <div class="banner-info ">
-           <div>1</div>
-           <div>2</div>
+        {{-- modal-one --}}
+        <!-- Modal -->
+        <div class="modal fade" id="btn1" tabindex="-1" aria-labelledby="btn1Label" aria-hidden="true"
+            data-bs-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="btn1Label">Modal title 1</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- end of modal-one --}}
+
+        {{-- modal-two --}}
+        <!-- Modal -->
+        <div class="modal fade" id="btn2" tabindex="-1" aria-labelledby="btn2Label" aria-hidden="true"
+            data-bs-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="btn2Label">Modal title 2</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- end of modal-two --}}
+        <div class="banner-info">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn  text-capitalize" data-bs-toggle="modal" data-bs-target="#btn1">
+                Button-1
+            </button>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn  text-capitalize" data-bs-toggle="modal" data-bs-target="#btn2">
+                Button-2
+            </button>
         </div>
     </section>
     <section class="features">
@@ -386,73 +451,42 @@
                 </div>
                 <div class="col-lg-6 col-md-10 ">
                     <div class="appoinment-wrap mt-5 mt-lg-0">
-                        <h2 class="mb-2 title-color">Book appoinment</h2>
-                        <p class="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui
-                            velit . Iste dolorum atque similique praesentium soluta.</p>
-                        <form id="#" class="appoinment-form" method="post" action="#">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <select class="form-control" id="exampleFormControlSelect1">
-                                            <option>Choose Department</option>
-                                            <option>Software Design</option>
-                                            <option>Development cycle</option>
-                                            <option>Software Development</option>
-                                            <option>Maintenance</option>
-                                            <option>Process Query</option>
-                                            <option>Cost and Duration</option>
-                                            <option>Modal Delivery</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <select class="form-control" id="exampleFormControlSelect2">
-                                            <option>Select Doctors</option>
-                                            <option>Software Design</option>
-                                            <option>Development cycle</option>
-                                            <option>Software Development</option>
-                                            <option>Maintenance</option>
-                                            <option>Process Query</option>
-                                            <option>Cost and Duration</option>
-                                            <option>Modal Delivery</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <input name="date" id="date" type="text" class="form-control"
-                                            placeholder="dd/mm/yyyy">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <input name="time" id="time" type="text" class="form-control"
-                                            placeholder="Time">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <input name="name" id="name" type="text" class="form-control"
-                                            placeholder="Full Name">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <input name="phone" id="phone" type="Number" class="form-control"
-                                            placeholder="Phone Number">
-                                    </div>
-                                </div>
+                        <h2 class="mb-2 title-color">Contact Us</h2>
+                        <form class="appoinment-form form" id="contactForm">
+                            <div class="form-group mb-2">
+                                <label for="name">Full Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Name"
+                                    name="name" value="{{ old('name') }}">
+                                <span id="nameError" class="text-danger"></span>
                             </div>
-                            <div class="form-group-2 mb-4">
-                                <textarea name="message" id="message" class="form-control" rows="6" placeholder="Your Message"></textarea>
-                            </div>
+                            <div class="form-group mb-2">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Email"
+                                    name="email" value="{{ old('email') }}">
+                                <span id="emailError" class="text-danger"></span>
 
-                            <a class="btn btn-main btn-round-full" href="appoinment.html">Make Appoinment <i
-                                    class="icofont-simple-right ml-2  "></i></a>
+                            </div>
+                            <div class="form-group mb-2">
+                                <label for="phone">Phone Number</label>
+                                <input type="text" class="form-control" id="phone" placeholder="Phone"
+                                    name="phone" value="{{ old('phone') }}">
+                                <span id="phoneError" class="text-danger"></span>
+
+                            </div>
+                            <div class="form-group mb-2">
+                                <label for="subject">Subject</label>
+                                <input type="text" class="form-control" id="subject" placeholder="subject"
+                                    name="subject" value="{{ old('subject') }}">
+                                <span id="subjectError" class="text-danger"></span>
+
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="message">Message</label>
+                                <textarea class="form-control" for="message" rows="5" name="message">{{ old('message') }}</textarea>
+                                <span id="messageError" class="text-danger"></span>
+                            </div>
+                            <button type="button" class="btn btn-primary text-capitalize"
+                                id="submitForm">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -759,7 +793,88 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA"></script>
     <script src="{{ asset('frontend/plugins/google-map/gmap.js') }}"></script>
 
+    {{-- bootstrap js --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+
+    {{-- toastify --}}
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+
     <script src="{{ asset('frontend/js/script.js') }}"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            // =====setup csrf token======
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+
+            // ========ADDING DATA TO DB(POST)=============//
+            var createFormData = $('#contactForm')[0];
+            $('#submitForm').click(function() {
+
+                // setting empty text on error message
+                $('#nameError').html('');
+                $('#emailError').html('');
+                $('#phoneError').html('');
+                $('#messageError').html('');
+                $('#subjectError').html('');
+                // getting form data
+                var formData = new FormData(createFormData);
+                // console.log(formData);
+                $.ajax({
+                    url: "{{ route('store.contact') }}",
+                    method: 'POST',
+                    processData: false,
+                    contentType: false,
+                    data: formData,
+
+                    success: function(response) {
+                        // clear form after successfully submitting
+                        $('#contactForm')[0].reset();
+                        // success message
+                        Toastify({
+                            text: 'Form submitted successfully!',
+                            duration: 3000,
+                            newWindow: true,
+                            close: true,
+                            color: "white",
+                            gravity: "bottom",
+                            position: 'right',
+                            backgroundColor: "green",
+                            stopOnFocus: true,
+                        }).showToast();
+                    },
+                    error: function(error) {
+                        let errorMessage = error.responseJSON.errors;
+                        // displaying error message below input field
+                        if (errorMessage.name) {
+                            $('#nameError').html(errorMessage.name[0]);
+                        }
+                        if (errorMessage.email) {
+                            $('#emailError').html(errorMessage.email[0]);
+                        }
+                        if (errorMessage.phone) {
+                            $('#phoneError').html(errorMessage.phone[0]);
+                        }
+                        if (errorMessage.message) {
+                            $('#messageError').html(errorMessage.message[0]);
+                        }
+                        if (errorMessage.subject) {
+                            $('#subjectError').html(errorMessage.subject[0]);
+                        }
+                    }
+                });
+            });
+            // ======================================================//
+        });
+    </script>
 
 </body>
 

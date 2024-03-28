@@ -507,15 +507,20 @@ a:focus {
   top: 40%;
   left: 40px;
   transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 } 
-.banner-info div{
-  height: 50px;
-  background-color: #223A66;
-  width: 70px;
-  text-align: center;
-  border-radius: 5px;
-  margin-bottom: 7px;
+.banner-info button{
+  background-color: #18489D;
+  color: white;
+  width: 120px;
 }
+.banner-info button:hover{
+  background-color: #EB1C24;
+  color: #18489D;
+}
+
 .social-media-whatsapp{
   position: fixed;
   bottom: 80px;
