@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Route;
 // ============frontend================
 // home-page
 Route::get('/',[HomeController::class,'index'])->name('index');
-Route::post('/contact-us',[ContactController::class,'store'])->name('store.contact');
+Route::get('contact-us', [ContactController::class, 'index']);
+Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us.store');
 
 
 // ============admin dashboard============

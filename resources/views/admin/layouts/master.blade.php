@@ -5,13 +5,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard</title>
+  <title>Mangaldeep Consulting</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{asset('frontend/images/favicon.png')}}" rel="icon">
+  <link href="{{asset('frontend/images/favicon.png')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -23,6 +23,7 @@
 
    {{-- toastify --}}
    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  
 
   <!-- Bootstrap css -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -41,8 +42,8 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="{{route('admin.dashboard')}}" class="logo d-flex align-items-center">
-        <img src="{{asset('admin/assets/img/logo.png')}}" alt="">
-        <span class="d-none d-lg-block">Insurance</span>
+        <img src="{{asset('frontend/images/favicon.png')}}" alt="">
+        <span class="d-none d-lg-block fs-5">Mangaldeep Consulting</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -273,7 +274,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{route('admin.dashboard')}}">
           <i class="fa-solid fa-gauge-high"></i>
-          <span>Dashboard</span>
+          <span>Mangaldeep Consulting</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
@@ -309,6 +310,13 @@
       </li>
 
       <li class="nav-item">
+        <a class="nav-link collapsed" href="{{route('admin.contact')}}">
+          <i class="fa-solid fa-comment"></i>
+          <span>Contact Message</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
         <a class="nav-link collapsed" href="{{route('logout')}}">
           <i class="fa-solid fa-right-from-bracket"></i>
           <span>Logout</span>
@@ -321,7 +329,7 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
+      <h1>Mangaldeep Consulting</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a  href="#" >Admin</a></li>

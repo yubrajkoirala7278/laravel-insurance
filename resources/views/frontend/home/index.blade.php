@@ -6,7 +6,7 @@
     <!-- Basic Page Needs
   ================================================== -->
     <meta charset="utf-8">
-    <title>Insurance &amp; Medical</title>
+    <title>Mangaldeep &amp; Consulting</title>
 
     <!-- Mobile Specific Metas
   ================================================== -->
@@ -85,7 +85,7 @@
         <nav class="navbar navbar-expand-lg navigation" id="navbar">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    <img src="{{ asset('frontend/images/logo.jpeg') }}" alt="" class="img-fluid"
+                    <img src="{{ asset('frontend/images/favicon.png') }}" alt="" class="img-fluid"
                         style="height: 50px">
                 </a>
 
@@ -829,7 +829,7 @@
                 var formData = new FormData(createFormData);
                 // console.log(formData);
                 $.ajax({
-                    url: "{{ route('store.contact') }}",
+                    url: "{{ route('contact.us.store') }}",
                     method: 'POST',
                     processData: false,
                     contentType: false,
