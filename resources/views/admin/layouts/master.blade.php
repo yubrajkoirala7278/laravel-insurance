@@ -13,6 +13,10 @@
   <link href="{{asset('frontend/images/favicon.png')}}" rel="icon">
   <link href="{{asset('frontend/images/favicon.png')}}" rel="apple-touch-icon">
 
+  {{-- alerts --}}
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -274,7 +278,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{route('admin.dashboard')}}">
           <i class="fa-solid fa-gauge-high"></i>
-          <span>Mangaldeep Consulting</span>
+          <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
@@ -315,6 +319,14 @@
           <span>Contact Message</span>
         </a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{route('admin.testimonials.index')}}">
+          <i class="fa-solid fa-user-graduate"></i>
+          <span>Testimonials</span>
+        </a>
+      </li>
+
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{route('logout')}}">
@@ -368,6 +380,23 @@
             gravity: "bottom",
             position: 'right', 
             backgroundColor: "green",
+            stopOnFocus: true, 
+        }).showToast();
+  </script>
+  @endif
+
+  {{-- display success message --}}
+  @if(session('error'))
+  <script>
+      Toastify({
+            text: {!! json_encode(session('error')) !!},
+            duration: 3000,
+            newWindow: true,
+            close: true,
+            color:"white",
+            gravity: "bottom",
+            position: 'right', 
+            backgroundColor: "red",
             stopOnFocus: true, 
         }).showToast();
   </script>

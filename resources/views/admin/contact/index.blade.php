@@ -34,11 +34,12 @@
                         <td>{{ Str::limit($contact->message, 20) }}</td>
                         <td>
                             <div class="d-flex align-items-center" style="flex-wrap:wrap;gap:8px">
-                                <form action="{{ route('contact.destroy', $contact->id) }}" method="POST" id="contactForm">
+                                <form action="{{ route('contact.destroy', $contact->id) }}" method="POST"
+                                    class="contactForm" data-contact-id="{{ $contact->id }}">
                                     @csrf
                                     @method('DELETE')
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#deleteContact"
-                                        class="btn btn-transparent text-danger p-0 "><i
+                                        class="btn btn-transparent text-danger p-0 deleteContactButton"><i
                                             class="fa-solid fa-trash"></i></button>
                                 </form>
                                 <a href="{{ route('contact.show', $contact->id) }}" class="text-success"><i
@@ -51,7 +52,6 @@
         </table>
         {{ $contacts->links() }}
     </div>
-    {{-- onclick="return confirm('Are you sure?')" --}}
 
     <!-- delete contact modal -->
     <div class="modal fade" id="deleteContact" tabindex="-1" data-bs-backdrop="static" aria-labelledby="deleteContactLabel"
@@ -63,28 +63,36 @@
                 </div>
                 <div class=" text-center">
                     <lord-icon src="https://cdn.lordicon.com/hjbrplwk.json" trigger="loop" delay="1000"
-                        style="height:150px;width:150px">
-                    </lord-icon>
+                        style="height:150px;width:150px"></lord-icon>
                     <h2>Are you sure you want to delete this record?</h2>
                     <p>If you delete this, it will be gone forever.</p>
                 </div>
                 <div class="pb-3 d-flex justify-content-end align-items-center pe-3 " style="flex-wrap: wrap;gap:10px">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger" onclick="deleteContact()">Delete</button>
+                    <button type="button" class="btn btn-danger deleteConfirm">Delete</button>
                 </div>
             </div>
         </div>
     </div>
-
     {{-- end modal --}}
 @endsection
 
 @section('script')
-    <script src="https://cdn.lordicon.com/lordicon.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        function deleteContact(){
-            document.forms["contactForm"].submit();
-        }
+        var deleteContactButton = document.querySelectorAll('.deleteContactButton');
+        deleteContactButton.forEach(function(button) {
+            button.addEventListener('click', function() {
+                var contactId = button.closest('.d-flex').querySelector('.contactForm').getAttribute(
+                    'data-contact-id');
+                document.querySelector('.deleteConfirm').setAttribute('data-contact-id', contactId);
+            });
+        });
+
+        var deleteConfirmButton = document.querySelector('.deleteConfirm');
+        deleteConfirmButton.addEventListener('click', function() {
+            var contactId = deleteConfirmButton.getAttribute('data-contact-id');
+            var form = document.querySelector('.contactForm[data-contact-id="' + contactId + '"]');
+            form.submit();
+        });
     </script>
 @endsection

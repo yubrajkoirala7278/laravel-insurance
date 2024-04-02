@@ -13,7 +13,8 @@
 </style>
 @endsection
 @section('content')
-<div class="p-5 bg-white">
+<div class="py-4 px-5 bg-white">
+    <h2 class=" fw-bold fs-5 mb-3 mt-0 pt-0" style="color: #012970">Add User</h2>
     <form class="row g-3 needs-validation" novalidate method="POST" action="{{route('user.register')}}">
         @csrf
         {{-- name --}}
